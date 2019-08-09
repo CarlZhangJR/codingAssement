@@ -1,0 +1,38 @@
+<!-- <div *ngIf="clickedProduct" class="productDetail" (mouseout)=erase() [style.visibility]="isShown ? 'visible' : 'hidden'"> -->
+    <div *ngIf="clickedProduct" class='popUp' [style.visibility]="isShown ? 'visible' : 'hidden'">
+        <div class="container2">
+                <!-- Indicators -->
+                <ngb-carousel>
+                        <ng-template ngbSlide *ngFor="let images of clickedProduct.images">
+                          <div class="picsum-img-wrapper">
+                            <img src={{images.href}} alt="Random first slide">
+                          </div>
+                          <div class="carousel-caption">
+                            <h6>{{clickedProduct.name}}</h6>
+                            <p>William Sonoma©️</p>
+                          </div>
+                        </ng-template>
+                      </ngb-carousel>
+            </div>
+
+    </div>
+
+    
+
+
+<div class='container'>
+<div class="col-md-4 col-sm-6" *ngFor="let item of groups" (click)=checkDetail(item.id)>
+    <div class='productContent'>
+<figure>
+<img src={{item.hero.href}} alt={{item.name}}>
+<figcaption>${{item.priceRange.selling.low}}~${{item.priceRange.selling.high}}</figcaption>
+</figure>
+<h5>{{item.name}}</h5>
+
+</div>
+
+</div>
+</div>
+
+<button class='topButton' *ngIf="isShow" (click)="gotoTop()">Back to Top👆</button>
+
